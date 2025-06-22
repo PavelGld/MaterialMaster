@@ -159,17 +159,20 @@ def analyze():
             flash(simple_gettext('Failed to generate material analysis. Please try again.'), 'error')
             return redirect(url_for('index'))
         
-        # Store analysis in session for PDF generation
+        # Store minimal analysis data in session for PDF generation
+        # Compress data to avoid session size limits
         session['last_analysis'] = {
-            'input_text': combined_text,
+            'input_text': combined_text[:1000] + ('...' if len(combined_text) > 1000 else ''),  # Truncate long text
             'analysis': analysis_result,
-            'ocr_extracted': bool(ocr_text)
+            'ocr_extracted': bool(ocr_text),
+            'language': get_locale()
         }
         
         return render_template('analysis.html', 
                              analysis=analysis_result,
                              input_text=combined_text,
-                             ocr_extracted=bool(ocr_text))
+                             ocr_extracted=bool(ocr_text),
+                             current_language=get_locale())
         
     except Exception as e:
         logging.error(f"Error in analyze route: {str(e)}")
@@ -185,11 +188,12 @@ def download_pdf():
         
         analysis_data = session['last_analysis']
         
-        # Generate PDF
+        # Generate PDF using the stored language preference
+        stored_language = analysis_data.get('language', get_locale())
         pdf_buffer = pdf_service.generate_report(
             analysis_data['analysis'],
             analysis_data['input_text'],
-            get_locale()
+            stored_language
         )
         
         # Create temporary file for download

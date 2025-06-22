@@ -11,18 +11,19 @@ class AIService:
         self.base_url = "https://openrouter.ai/api/v1/chat/completions"
         self.model = "google/gemini-2.0-flash-exp:free"  # Using the free Gemini 2.0 Flash model
         
-    def analyze_material_requirements(self, input_text: str) -> Optional[Dict[str, Any]]:
+    def analyze_material_requirements(self, input_text: str, language: str = 'en') -> Optional[Dict[str, Any]]:
         """
         Analyze material requirements using AI
         
         Args:
             input_text (str): Combined description and OCR text
+            language (str): Language preference ('en' or 'ru')
             
         Returns:
             Dict[str, Any]: Analysis results or None if failed
         """
         try:
-            prompt = self._create_analysis_prompt(input_text)
+            prompt = self._create_analysis_prompt(input_text, language)
             
             headers = {
                 "Authorization": f"Bearer {self.api_key}",
@@ -34,7 +35,7 @@ class AIService:
                 "messages": [
                     {
                         "role": "system",
-                        "content": self._get_system_prompt()
+                        "content": self._get_system_prompt(language)
                     },
                     {
                         "role": "user",
@@ -79,7 +80,8 @@ For each section, provide specific, actionable recommendations. Reference releva
     
     def _create_analysis_prompt(self, input_text: str) -> str:
         """Create analysis prompt from input text"""
-        return f"""Please analyze the following technical description/drawing data and provide a comprehensive material engineering report:
+        if language == 'ru':
+            return f"""Пожалуйста, проанализируйте следующие технические описания/данные чертежей и предоставьте комплексный отчет по материаловедению:
 
 INPUT DATA:
 {input_text}
