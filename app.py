@@ -153,7 +153,8 @@ def analyze():
             return redirect(url_for('index'))
         
         # Generate AI analysis
-        analysis_result = ai_service.analyze_material_requirements(combined_text)
+        current_language = get_locale()
+        analysis_result = ai_service.analyze_material_requirements(combined_text, current_language)
         
         if not analysis_result:
             flash(simple_gettext('Failed to generate material analysis. Please try again.'), 'error')

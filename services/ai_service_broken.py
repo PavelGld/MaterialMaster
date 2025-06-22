@@ -51,7 +51,10 @@ class AIService:
             if response.status_code == 200:
                 result = response.json()
                 content = result['choices'][0]['message']['content']
-                return self._parse_ai_response(content)
+                
+                # Parse the structured response
+                analysis = self._parse_ai_response(content)
+                return analysis
             else:
                 self.logger.error(f"API request failed: {response.status_code} - {response.text}")
                 return None
@@ -217,23 +220,25 @@ Provide specific, detailed recommendations based on engineering best practices a
                 },
                 "structural_characteristics": {
                     "microstructure": "Fine-grained structure preferred",
-                    "grain_structure": "Uniform grain distribution",
-                    "phase_composition": "Single-phase or controlled multi-phase",
+                    "grain_structure": "Uniform grain structure",
+                    "phase_composition": "Balanced phase composition",
                     "mechanical_properties": "High strength and ductility"
                 },
                 "defect_analysis": {
                     "common_defects": ["Cracks", "Inclusions", "Dimensional deviations"],
-                    "causes": ["Material impurities", "Processing parameters", "Design factors"],
+                    "causes": ["Material defects", "Processing errors", "Design issues"],
                     "prevention_methods": ["Proper material selection", "Process control"],
-                    "correction_methods": ["Rework", "Heat treatment adjustment"]
+                    "correction_methods": ["Repair welding", "Machining", "Heat treatment"]
                 },
                 "testing_methods": {
                     "mechanical_tests": ["Tensile test", "Hardness test", "Impact test"],
                     "non_destructive_tests": ["Visual inspection", "Ultrasonic testing"],
                     "standards": ["GOST 1497", "GOST 9454"],
                     "acceptance_criteria": "Per applicable standards"
-                }
+                },
+                "raw_response": content
             }
+            
         except json.JSONDecodeError:
             self.logger.warning("Failed to parse AI response as JSON, using fallback structure")
             return {
