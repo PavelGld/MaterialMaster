@@ -9,7 +9,7 @@ class AIService:
         self.logger = logging.getLogger(__name__)
         self.api_key = os.environ.get('OPENROUTER_API_KEY', 'default-key')
         self.base_url = "https://openrouter.ai/api/v1/chat/completions"
-        self.model = "google/gemini-2.0-flash-exp:free"  # Using the free Gemini 2.0 Flash model
+        self.model = "microsoft/phi-3-medium-128k-instruct:free"  # Using the free Gemini 2.0 Flash model
         
     def analyze_material_requirements(self, input_text: str, language: str = 'en') -> Optional[Dict[str, Any]]:
         """
