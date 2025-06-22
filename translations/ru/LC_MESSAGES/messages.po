@@ -80,6 +80,129 @@ msgstr "PDF отчеты"
 msgid "Generate professional PDF reports with detailed analysis"
 msgstr "Создание профессиональных PDF отчетов с подробным анализом"
 
+# Analysis section titles
+msgid "1. Product Purpose and Operating Conditions Assessment"
+msgstr "1. Оценка назначения изделия и условий эксплуатации"
+
+msgid "2. Material Selection and Justification"
+msgstr "2. Выбор и обоснование материала"
+
+msgid "3. Manufacturing Technology and Processing"
+msgstr "3. Технология изготовления и обработки"
+
+msgid "4. Structural Characteristics and Design"
+msgstr "4. Конструктивные характеристики и проектирование"
+
+msgid "5. Defect Analysis and Quality Control"
+msgstr "5. Анализ дефектов и контроль качества"
+
+msgid "6. Material Properties Testing Methods"
+msgstr "6. Методы испытаний свойств материала"
+
+# Analysis subsection titles
+msgid "Purpose"
+msgstr "Назначение"
+
+msgid "Operating Conditions"
+msgstr "Условия эксплуатации"
+
+msgid "Critical Requirements"
+msgstr "Критические требования"
+
+msgid "Primary Material"
+msgstr "Основной материал"
+
+msgid "Alternative Materials"
+msgstr "Альтернативные материалы"
+
+msgid "Justification"
+msgstr "Обоснование"
+
+msgid "Manufacturing Process"
+msgstr "Технологический процесс"
+
+msgid "Processing Parameters"
+msgstr "Параметры обработки"
+
+msgid "Quality Control Steps"
+msgstr "Этапы контроля качества"
+
+msgid "Design Features"
+msgstr "Конструктивные особенности"
+
+msgid "Dimensional Requirements"
+msgstr "Размерные требования"
+
+msgid "Surface Requirements"
+msgstr "Требования к поверхности"
+
+msgid "Common Defects"
+msgstr "Типичные дефекты"
+
+msgid "Causes"
+msgstr "Причины"
+
+msgid "Prevention Methods"
+msgstr "Методы предотвращения"
+
+msgid "Correction Methods"
+msgstr "Методы исправления"
+
+msgid "Mechanical Tests"
+msgstr "Механические испытания"
+
+msgid "Non-Destructive Tests"
+msgstr "Неразрушающие испытания"
+
+msgid "Standards"
+msgstr "Стандарты"
+
+msgid "Acceptance Criteria"
+msgstr "Критерии приемки"
+
+# Additional analysis translations
+msgid "Recommended Materials"
+msgstr "Рекомендуемые материалы"
+
+msgid "Primary Choice"
+msgstr "Основной выбор"
+
+msgid "GOST Standards"
+msgstr "Стандарты ГОСТ"
+
+msgid "Processing Methods"
+msgstr "Методы обработки"
+
+msgid "Heat Treatment"
+msgstr "Термическая обработка"
+
+msgid "Surface Treatment"
+msgstr "Обработка поверхности"
+
+msgid "4. Material Structure Characteristics"
+msgstr "4. Структурные характеристики материала"
+
+msgid "Microstructure"
+msgstr "Микроструктура"
+
+msgid "Mechanical Properties"
+msgstr "Механические свойства"
+
+msgid "5. Defect Analysis and Prevention"
+msgstr "5. Анализ дефектов и предотвращение"
+
+msgid "Testing Standards"
+msgstr "Стандарты испытаний"
+
+msgid "No analysis results available."
+msgstr "Результаты анализа недоступны."
+
+msgid "Download PDF Report"
+msgstr "Скачать PDF отчет"
+
+msgid "New Analysis"
+msgstr "Новый анализ"
+
 msgid "Analysis Report Sections"
 msgstr "Разделы аналитического отчета"
 
