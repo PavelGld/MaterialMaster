@@ -203,6 +203,18 @@ msgstr "Скачать PDF отчет"
 msgid "New Analysis"
 msgstr "Новый анализ"
 
+msgid "Material Analysis Results"
+msgstr "Результаты анализа материалов"
+
+msgid "Analysis Results"
+msgstr "Результаты анализа"
+
+msgid "Input Data Summary"
+msgstr "Сводка входных данных"
+
+msgid "Download PDF"
+msgstr "Скачать PDF"
+
 msgid "Analysis Report Sections"
 msgstr "Разделы аналитического отчета"
 
