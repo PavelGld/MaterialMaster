@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Material Selection Analysis') }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-6 mb-3">
+                <i class="fas fa-microscope text-primary me-3"></i>
+                {{ _('Material Selection Analysis') }}
+            </h1>
+            <p class="lead text-muted">
+                {{ _('Upload technical drawings or provide descriptions for AI-powered material recommendations') }}
+            </p>
+        </div>
+
+        <!-- Analysis Form -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-upload me-2"></i>
+                    {{ _('Input Data') }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('analyze') }}" enctype="multipart/form-data" id="analysisForm">
+                    <!-- Text Description -->
+                    <div class="mb-4">
+                        <label for="description" class="form-label">
+                            <i class="fas fa-edit me-2"></i>
+                            {{ _('Technical Description') }}
+                        </label>
+                        <textarea 
+                            class="form-control" 
+                            id="description" 
+                            name="description" 
+                            rows="6" 
+                            placeholder="{{ _('Describe the component, its purpose, operating conditions, and requirements...') }}"
+                        ></textarea>
+                        <div class="form-text">
+                            {{ _('Provide detailed information about the component including dimensions, operating temperature, loads, environment, etc.') }}
+                        </div>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div class="mb-4">
+                        <label for="drawing" class="form-label">
+                            <i class="fas fa-image me-2"></i>
+                            {{ _('Technical Drawing') }}
+                        </label>
+                        <input 
+                            class="form-control" 
+                            type="file" 
+                            id="drawing" 
+                            name="drawing" 
+                            accept=".png,.jpg,.jpeg"
+                        >
+                        <div class="form-text">
+                            {{ _('Upload PNG or JPEG images. OCR will extract text from technical drawings.') }}
+                        </div>
+                        
+                        <!-- File preview area -->
+                        <div id="filePreview" class="mt-3" style="display: none;">
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-file-image text-info me-3 fa-2x"></i>
+                                        <div>
+                                            <p class="mb-1 fw-semibold" id="fileName"></p>
+                                            <small class="text-muted" id="fileSize"></small>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-outline-danger ms-auto" id="removeFile">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Requirements Note -->
+                    <div class="alert alert-info">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>{{ _('Note:') }}</strong>
+                        {{ _('You can provide either a text description, upload a drawing, or both. The system will analyze all available information to provide comprehensive material recommendations.') }}
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                            <i class="fas fa-cog me-2"></i>
+                            {{ _('Analyze Materials') }}
+                            <span class="spinner-border spinner-border-sm ms-2" id="loadingSpinner" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Features Info -->
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 bg-light">
+                    <div class="card-body text-center">
+                        <i class="fas fa-eye fa-3x text-primary mb-3"></i>
+                        <h6 class="card-title">{{ _('OCR Processing') }}</h6>
+                        <p class="card-text text-muted">
+                            {{ _('Extract text from technical drawings using advanced OCR technology') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 bg-light">
+                    <div class="card-body text-center">
+                        <i class="fas fa-brain fa-3x text-success mb-3"></i>
+                        <h6 class="card-title">{{ _('AI Analysis') }}</h6>
+                        <p class="card-text text-muted">
+                            {{ _('Powered by Google Gemini for intelligent material recommendations') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 bg-light">
+                    <div class="card-body text-center">
+                        <i class="fas fa-file-pdf fa-3x text-danger mb-3"></i>
+                        <h6 class="card-title">{{ _('PDF Reports') }}</h6>
+                        <p class="card-text text-muted">
+                            {{ _('Generate professional PDF reports with detailed analysis') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Sections Preview -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="fas fa-list-check me-2"></i>
+                    {{ _('Analysis Report Sections') }}
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-0 px-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                {{ _('Product Purpose Assessment') }}
+                            </li>
+                            <li class="list-group-item border-0 px-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                {{ _('Material Selection & Justification') }}
+                            </li>
+                            <li class="list-group-item border-0 px-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                {{ _('Manufacturing Technology') }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-0 px-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                {{ _('Structural Characteristics') }}
+                            </li>
+                            <li class="list-group-item border-0 px-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                {{ _('Defect Analysis & Prevention') }}
+                            </li>
+                            <li class="list-group-item border-0 px-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                {{ _('Testing Methods & Standards') }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // File upload preview and validation
+    document.getElementById('drawing').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const preview = document.getElementById('filePreview');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        
+        if (file) {
+            // Validate file size (16MB limit)
+            if (file.size > 16 * 1024 * 1024) {
+                alert('{{ _("File size must be less than 16MB") }}');
+                e.target.value = '';
+                preview.style.display = 'none';
+                return;
+            }
+            
+            // Validate file type
+            const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('{{ _("Please upload PNG or JPEG files only") }}');
+                e.target.value = '';
+                preview.style.display = 'none';
+                return;
+            }
+            
+            // Show preview
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            preview.style.display = 'block';
+        } else {
+            preview.style.display = 'none';
+        }
+    });
+    
+    // Remove file
+    document.getElementById('removeFile').addEventListener('click', function() {
+        document.getElementById('drawing').value = '';
+        document.getElementById('filePreview').style.display = 'none';
+    });
+    
+    // Form submission with loading state
+    document.getElementById('analysisForm').addEventListener('submit', function(e) {
+        const description = document.getElementById('description').value.trim();
+        const file = document.getElementById('drawing').files[0];
+        
+        if (!description && !file) {
+            e.preventDefault();
+            alert('{{ _("Please provide either a text description or upload a drawing") }}');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = document.getElementById('submitBtn');
+        const spinner = document.getElementById('loadingSpinner');
+        
+        submitBtn.disabled = true;
+        spinner.style.display = 'inline-block';
+        submitBtn.innerHTML = '<i class="fas fa-cog me-2"></i>{{ _("Processing...") }}<span class="spinner-border spinner-border-sm ms-2"></span>';
+    });
+    
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+</script>
+{% endblock %}

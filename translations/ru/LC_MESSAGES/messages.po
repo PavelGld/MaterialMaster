@@ -1,0 +1,221 @@
+# Russian translations for Material Analysis Application
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru\n"
+
+msgid "AI Material Selection"
+msgstr "ИИ Подбор Материалов"
+
+msgid "Material Selection Analysis"
+msgstr "Анализ Подбора Материалов"
+
+msgid "Upload technical drawings or provide descriptions for AI-powered material recommendations"
+msgstr "Загрузите технические чертежи или предоставьте описания для рекомендаций материалов на основе ИИ"
+
+msgid "Input Data"
+msgstr "Исходные данные"
+
+msgid "Technical Description"
+msgstr "Техническое описание"
+
+msgid "Describe the component, its purpose, operating conditions, and requirements..."
+msgstr "Опишите компонент, его назначение, условия эксплуатации и требования..."
+
+msgid "Provide detailed information about the component including dimensions, operating temperature, loads, environment, etc."
+msgstr "Предоставьте подробную информацию о компоненте, включая размеры, рабочую температуру, нагрузки, окружающую среду и т.д."
+
+msgid "Technical Drawing"
+msgstr "Технический чертёж"
+
+msgid "Upload PNG or JPEG images. OCR will extract text from technical drawings."
+msgstr "Загрузите изображения PNG или JPEG. OCR извлечёт текст из технических чертежей."
+
+msgid "Note:"
+msgstr "Заметка:"
+
+msgid "You can provide either a text description, upload a drawing, or both. The system will analyze all available information to provide comprehensive material recommendations."
+msgstr "Вы можете предоставить либо текстовое описание, загрузить чертёж, либо и то, и другое. Система проанализирует всю доступную информацию для предоставления комплексных рекомендаций по материалам."
+
+msgid "Analyze Materials"
+msgstr "Анализировать материалы"
+
+msgid "Processing..."
+msgstr "Обработка..."
+
+msgid "OCR Processing"
+msgstr "OCR обработка"
+
+msgid "Extract text from technical drawings using advanced OCR technology"
+msgstr "Извлечение текста из технических чертежей с использованием передовой технологии OCR"
+
+msgid "AI Analysis"
+msgstr "ИИ анализ"
+
+msgid "Powered by Google Gemini for intelligent material recommendations"
+msgstr "На основе Google Gemini для интеллектуальных рекомендаций материалов"
+
+msgid "PDF Reports"
+msgstr "PDF отчёты"
+
+msgid "Generate professional PDF reports with detailed analysis"
+msgstr "Генерирование профессиональных PDF отчётов с подробным анализом"
+
+msgid "Analysis Report Sections"
+msgstr "Разделы аналитического отчёта"
+
+msgid "Product Purpose Assessment"
+msgstr "Оценка назначения изделия"
+
+msgid "Material Selection & Justification"
+msgstr "Выбор и обоснование материала"
+
+msgid "Manufacturing Technology"
+msgstr "Технология изготовления"
+
+msgid "Structural Characteristics"
+msgstr "Структурные характеристики"
+
+msgid "Defect Analysis & Prevention"
+msgstr "Анализ дефектов и предотвращение"
+
+msgid "Testing Methods & Standards"
+msgstr "Методы испытаний и стандарты"
+
+msgid "Please provide either a text description or upload a drawing."
+msgstr "Пожалуйста, предоставьте текстовое описание или загрузите чертёж."
+
+msgid "Text successfully extracted from drawing."
+msgstr "Текст успешно извлечён из чертежа."
+
+msgid "No text could be extracted from the drawing."
+msgstr "Из чертежа не удалось извлечь текст."
+
+msgid "Error processing uploaded file: %(error)s"
+msgstr "Ошибка обработки загруженного файла: %(error)s"
+
+msgid "Invalid file format. Please upload PNG or JPEG files only."
+msgstr "Неверный формат файла. Пожалуйста, загружайте только файлы PNG или JPEG."
+
+msgid "No text available for analysis."
+msgstr "Нет текста для анализа."
+
+msgid "Failed to generate material analysis. Please try again."
+msgstr "Не удалось сгенерировать анализ материалов. Пожалуйста, попробуйте снова."
+
+msgid "An error occurred during analysis: %(error)s"
+msgstr "Произошла ошибка во время анализа: %(error)s"
+
+msgid "Analysis Results"
+msgstr "Результаты анализа"
+
+msgid "Material Analysis Results"
+msgstr "Результаты анализа материалов"
+
+msgid "Download PDF"
+msgstr "Скачать PDF"
+
+msgid "New Analysis"
+msgstr "Новый анализ"
+
+msgid "Input Data Summary"
+msgstr "Сводка исходных данных"
+
+msgid "OCR Extracted"
+msgstr "OCR извлечено"
+
+msgid "1. Product Purpose and Operating Conditions Assessment"
+msgstr "1. Оценка назначения изделия и условий эксплуатации"
+
+msgid "Purpose"
+msgstr "Назначение"
+
+msgid "Operating Conditions"
+msgstr "Условия эксплуатации"
+
+msgid "Critical Requirements"
+msgstr "Критические требования"
+
+msgid "2. Material Selection and Justification"
+msgstr "2. Выбор и обоснование материала"
+
+msgid "Recommended Materials"
+msgstr "Рекомендуемые материалы"
+
+msgid "Primary Choice"
+msgstr "Основной выбор"
+
+msgid "Justification"
+msgstr "Обоснование"
+
+msgid "GOST Standards"
+msgstr "Стандарты ГОСТ"
+
+msgid "3. Manufacturing Technology and Processing"
+msgstr "3. Технология изготовления и обработки"
+
+msgid "Processing Methods"
+msgstr "Методы обработки"
+
+msgid "Heat Treatment"
+msgstr "Термическая обработка"
+
+msgid "Surface Treatment"
+msgstr "Поверхностная обработка"
+
+msgid "4. Material Structure Characteristics"
+msgstr "4. Характеристики структуры материала"
+
+msgid "Microstructure"
+msgstr "Микроструктура"
+
+msgid "Mechanical Properties"
+msgstr "Механические свойства"
+
+msgid "5. Defect Analysis and Prevention"
+msgstr "5. Анализ дефектов и предотвращение"
+
+msgid "Common Defects"
+msgstr "Распространённые дефекты"
+
+msgid "Prevention Methods"
+msgstr "Методы предотвращения"
+
+msgid "6. Material Properties Testing Methods"
+msgstr "6. Методы определения свойств материалов"
+
+msgid "Mechanical Tests"
+msgstr "Механические испытания"
+
+msgid "Testing Standards"
+msgstr "Стандарты испытаний"
+
+msgid "No analysis results available."
+msgstr "Результаты анализа недоступны."
+
+msgid "Download PDF Report"
+msgstr "Скачать PDF отчёт"
+
+msgid "No analysis available for PDF generation."
+msgstr "Нет анализа для генерации PDF."
+
+msgid "Error generating PDF report: %(error)s"
+msgstr "Ошибка генерации PDF отчёта: %(error)s"
+
+msgid "About"
+msgstr "О программе"
+
+msgid "AI-powered material selection system for engineering applications"
+msgstr "Система подбора материалов на основе ИИ для инженерных приложений"
+
+msgid "Material Analysis System"
+msgstr "Система анализа материалов"
+
+msgid "File size must be less than 16MB"
+msgstr "Размер файла должен быть менее 16 МБ"
+
+msgid "Please upload PNG or JPEG files only"
+msgstr "Пожалуйста, загружайте только файлы PNG или JPEG"
+
+msgid "Please provide either a text description or upload a drawing"
+msgstr "Пожалуйста, предоставьте текстовое описание или загрузите чертёж"

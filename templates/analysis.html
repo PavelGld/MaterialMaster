@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Analysis Results') }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="display-6">
+                <i class="fas fa-chart-line text-success me-3"></i>
+                {{ _('Material Analysis Results') }}
+            </h1>
+            <div>
+                <a href="{{ url_for('download_pdf') }}" class="btn btn-outline-danger me-2">
+                    <i class="fas fa-file-pdf me-2"></i>
+                    {{ _('Download PDF') }}
+                </a>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>
+                    {{ _('New Analysis') }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Input Summary -->
+        {% if input_text %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h6 class="card-title mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    {{ _('Input Data Summary') }}
+                    {% if ocr_extracted %}
+                        <span class="badge bg-success ms-2">
+                            <i class="fas fa-eye me-1"></i>
+                            {{ _('OCR Extracted') }}
+                        </span>
+                    {% endif %}
+                </h6>
+            </div>
+            <div class="card-body">
+                <p class="mb-0">{{ input_text }}</p>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Analysis Results -->
+        {% if analysis %}
+            <!-- Product Assessment -->
+            {% if analysis.product_assessment %}
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-bullseye me-2"></i>
+                        {{ _('1. Product Purpose and Operating Conditions Assessment') }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if analysis.product_assessment.purpose %}
+                    <div class="mb-3">
+                        <h6 class="text-primary">{{ _('Purpose') }}</h6>
+                        <p>{{ analysis.product_assessment.purpose }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.product_assessment.operating_conditions %}
+                    <div class="mb-3">
+                        <h6 class="text-primary">{{ _('Operating Conditions') }}</h6>
+                        <p>{{ analysis.product_assessment.operating_conditions }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.product_assessment.critical_requirements %}
+                    <div class="mb-3">
+                        <h6 class="text-primary">{{ _('Critical Requirements') }}</h6>
+                        <p>{{ analysis.product_assessment.critical_requirements }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Material Selection -->
+            {% if analysis.material_selection %}
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-atom me-2"></i>
+                        {{ _('2. Material Selection and Justification') }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if analysis.material_selection.recommended_materials %}
+                    <div class="mb-3">
+                        <h6 class="text-success">{{ _('Recommended Materials') }}</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for material in analysis.material_selection.recommended_materials %}
+                            <li class="list-group-item px-0">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                {{ material }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.material_selection.primary_choice %}
+                    <div class="mb-3">
+                        <h6 class="text-success">{{ _('Primary Choice') }}</h6>
+                        <div class="alert alert-success">
+                            <i class="fas fa-star me-2"></i>
+                            {{ analysis.material_selection.primary_choice }}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.material_selection.justification %}
+                    <div class="mb-3">
+                        <h6 class="text-success">{{ _('Justification') }}</h6>
+                        <p>{{ analysis.material_selection.justification }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.material_selection.gost_standards %}
+                    <div class="mb-3">
+                        <h6 class="text-success">{{ _('GOST Standards') }}</h6>
+                        <div class="row">
+                            {% for standard in analysis.material_selection.gost_standards %}
+                            <div class="col-md-6 mb-2">
+                                <span class="badge bg-outline-success">{{ standard }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Manufacturing Technology -->
+            {% if analysis.manufacturing_technology %}
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-cogs me-2"></i>
+                        {{ _('3. Manufacturing Technology and Processing') }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if analysis.manufacturing_technology.processing_methods %}
+                    <div class="mb-3">
+                        <h6 class="text-warning">{{ _('Processing Methods') }}</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for method in analysis.manufacturing_technology.processing_methods %}
+                            <li class="list-group-item px-0">
+                                <i class="fas fa-gear text-warning me-2"></i>
+                                {{ method }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.manufacturing_technology.heat_treatment %}
+                    <div class="mb-3">
+                        <h6 class="text-warning">{{ _('Heat Treatment') }}</h6>
+                        <p>{{ analysis.manufacturing_technology.heat_treatment }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.manufacturing_technology.surface_treatment %}
+                    <div class="mb-3">
+                        <h6 class="text-warning">{{ _('Surface Treatment') }}</h6>
+                        <p>{{ analysis.manufacturing_technology.surface_treatment }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Structural Characteristics -->
+            {% if analysis.structural_characteristics %}
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-microscope me-2"></i>
+                        {{ _('4. Material Structure Characteristics') }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if analysis.structural_characteristics.microstructure %}
+                    <div class="mb-3">
+                        <h6 class="text-info">{{ _('Microstructure') }}</h6>
+                        <p>{{ analysis.structural_characteristics.microstructure }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.structural_characteristics.mechanical_properties %}
+                    <div class="mb-3">
+                        <h6 class="text-info">{{ _('Mechanical Properties') }}</h6>
+                        <p>{{ analysis.structural_characteristics.mechanical_properties }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Defect Analysis -->
+            {% if analysis.defect_analysis %}
+            <div class="card mb-4">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        {{ _('5. Defect Analysis and Prevention') }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if analysis.defect_analysis.common_defects %}
+                    <div class="mb-3">
+                        <h6 class="text-danger">{{ _('Common Defects') }}</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for defect in analysis.defect_analysis.common_defects %}
+                            <li class="list-group-item px-0">
+                                <i class="fas fa-times-circle text-danger me-2"></i>
+                                {{ defect }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.defect_analysis.prevention_methods %}
+                    <div class="mb-3">
+                        <h6 class="text-danger">{{ _('Prevention Methods') }}</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for method in analysis.defect_analysis.prevention_methods %}
+                            <li class="list-group-item px-0">
+                                <i class="fas fa-shield-alt text-success me-2"></i>
+                                {{ method }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Testing Methods -->
+            {% if analysis.testing_methods %}
+            <div class="card mb-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-flask me-2"></i>
+                        {{ _('6. Material Properties Testing Methods') }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if analysis.testing_methods.mechanical_tests %}
+                    <div class="mb-3">
+                        <h6 class="text-secondary">{{ _('Mechanical Tests') }}</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for test in analysis.testing_methods.mechanical_tests %}
+                            <li class="list-group-item px-0">
+                                <i class="fas fa-vial text-secondary me-2"></i>
+                                {{ test }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    {% if analysis.testing_methods.standards %}
+                    <div class="mb-3">
+                        <h6 class="text-secondary">{{ _('Testing Standards') }}</h6>
+                        <div class="row">
+                            {% for standard in analysis.testing_methods.standards %}
+                            <div class="col-md-6 mb-2">
+                                <span class="badge bg-secondary">{{ standard }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+
+        {% else %}
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                {{ _('No analysis results available.') }}
+            </div>
+        {% endif %}
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('download_pdf') }}" class="btn btn-danger btn-lg me-3">
+                <i class="fas fa-file-pdf me-2"></i>
+                {{ _('Download PDF Report') }}
+            </a>
+            <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-plus me-2"></i>
+                {{ _('New Analysis') }}
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // Auto-scroll to analysis results
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scroll to first analysis section
+        const firstCard = document.querySelector('.card');
+        if (firstCard) {
+            firstCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+</script>
+{% endblock %}

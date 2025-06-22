@@ -1,0 +1,221 @@
+# English translations for Material Analysis Application
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+
+msgid "AI Material Selection"
+msgstr "AI Material Selection"
+
+msgid "Material Selection Analysis"
+msgstr "Material Selection Analysis"
+
+msgid "Upload technical drawings or provide descriptions for AI-powered material recommendations"
+msgstr "Upload technical drawings or provide descriptions for AI-powered material recommendations"
+
+msgid "Input Data"
+msgstr "Input Data"
+
+msgid "Technical Description"
+msgstr "Technical Description"
+
+msgid "Describe the component, its purpose, operating conditions, and requirements..."
+msgstr "Describe the component, its purpose, operating conditions, and requirements..."
+
+msgid "Provide detailed information about the component including dimensions, operating temperature, loads, environment, etc."
+msgstr "Provide detailed information about the component including dimensions, operating temperature, loads, environment, etc."
+
+msgid "Technical Drawing"
+msgstr "Technical Drawing"
+
+msgid "Upload PNG or JPEG images. OCR will extract text from technical drawings."
+msgstr "Upload PNG or JPEG images. OCR will extract text from technical drawings."
+
+msgid "Note:"
+msgstr "Note:"
+
+msgid "You can provide either a text description, upload a drawing, or both. The system will analyze all available information to provide comprehensive material recommendations."
+msgstr "You can provide either a text description, upload a drawing, or both. The system will analyze all available information to provide comprehensive material recommendations."
+
+msgid "Analyze Materials"
+msgstr "Analyze Materials"
+
+msgid "Processing..."
+msgstr "Processing..."
+
+msgid "OCR Processing"
+msgstr "OCR Processing"
+
+msgid "Extract text from technical drawings using advanced OCR technology"
+msgstr "Extract text from technical drawings using advanced OCR technology"
+
+msgid "AI Analysis"
+msgstr "AI Analysis"
+
+msgid "Powered by Google Gemini for intelligent material recommendations"
+msgstr "Powered by Google Gemini for intelligent material recommendations"
+
+msgid "PDF Reports"
+msgstr "PDF Reports"
+
+msgid "Generate professional PDF reports with detailed analysis"
+msgstr "Generate professional PDF reports with detailed analysis"
+
+msgid "Analysis Report Sections"
+msgstr "Analysis Report Sections"
+
+msgid "Product Purpose Assessment"
+msgstr "Product Purpose Assessment"
+
+msgid "Material Selection & Justification"
+msgstr "Material Selection & Justification"
+
+msgid "Manufacturing Technology"
+msgstr "Manufacturing Technology"
+
+msgid "Structural Characteristics"
+msgstr "Structural Characteristics"
+
+msgid "Defect Analysis & Prevention"
+msgstr "Defect Analysis & Prevention"
+
+msgid "Testing Methods & Standards"
+msgstr "Testing Methods & Standards"
+
+msgid "Please provide either a text description or upload a drawing."
+msgstr "Please provide either a text description or upload a drawing."
+
+msgid "Text successfully extracted from drawing."
+msgstr "Text successfully extracted from drawing."
+
+msgid "No text could be extracted from the drawing."
+msgstr "No text could be extracted from the drawing."
+
+msgid "Error processing uploaded file: %(error)s"
+msgstr "Error processing uploaded file: %(error)s"
+
+msgid "Invalid file format. Please upload PNG or JPEG files only."
+msgstr "Invalid file format. Please upload PNG or JPEG files only."
+
+msgid "No text available for analysis."
+msgstr "No text available for analysis."
+
+msgid "Failed to generate material analysis. Please try again."
+msgstr "Failed to generate material analysis. Please try again."
+
+msgid "An error occurred during analysis: %(error)s"
+msgstr "An error occurred during analysis: %(error)s"
+
+msgid "Analysis Results"
+msgstr "Analysis Results"
+
+msgid "Material Analysis Results"
+msgstr "Material Analysis Results"
+
+msgid "Download PDF"
+msgstr "Download PDF"
+
+msgid "New Analysis"
+msgstr "New Analysis"
+
+msgid "Input Data Summary"
+msgstr "Input Data Summary"
+
+msgid "OCR Extracted"
+msgstr "OCR Extracted"
+
+msgid "1. Product Purpose and Operating Conditions Assessment"
+msgstr "1. Product Purpose and Operating Conditions Assessment"
+
+msgid "Purpose"
+msgstr "Purpose"
+
+msgid "Operating Conditions"
+msgstr "Operating Conditions"
+
+msgid "Critical Requirements"
+msgstr "Critical Requirements"
+
+msgid "2. Material Selection and Justification"
+msgstr "2. Material Selection and Justification"
+
+msgid "Recommended Materials"
+msgstr "Recommended Materials"
+
+msgid "Primary Choice"
+msgstr "Primary Choice"
+
+msgid "Justification"
+msgstr "Justification"
+
+msgid "GOST Standards"
+msgstr "GOST Standards"
+
+msgid "3. Manufacturing Technology and Processing"
+msgstr "3. Manufacturing Technology and Processing"
+
+msgid "Processing Methods"
+msgstr "Processing Methods"
+
+msgid "Heat Treatment"
+msgstr "Heat Treatment"
+
+msgid "Surface Treatment"
+msgstr "Surface Treatment"
+
+msgid "4. Material Structure Characteristics"
+msgstr "4. Material Structure Characteristics"
+
+msgid "Microstructure"
+msgstr "Microstructure"
+
+msgid "Mechanical Properties"
+msgstr "Mechanical Properties"
+
+msgid "5. Defect Analysis and Prevention"
+msgstr "5. Defect Analysis and Prevention"
+
+msgid "Common Defects"
+msgstr "Common Defects"
+
+msgid "Prevention Methods"
+msgstr "Prevention Methods"
+
+msgid "6. Material Properties Testing Methods"
+msgstr "6. Material Properties Testing Methods"
+
+msgid "Mechanical Tests"
+msgstr "Mechanical Tests"
+
+msgid "Testing Standards"
+msgstr "Testing Standards"
+
+msgid "No analysis results available."
+msgstr "No analysis results available."
+
+msgid "Download PDF Report"
+msgstr "Download PDF Report"
+
+msgid "No analysis available for PDF generation."
+msgstr "No analysis available for PDF generation."
+
+msgid "Error generating PDF report: %(error)s"
+msgstr "Error generating PDF report: %(error)s"
+
+msgid "About"
+msgstr "About"
+
+msgid "AI-powered material selection system for engineering applications"
+msgstr "AI-powered material selection system for engineering applications"
+
+msgid "Material Analysis System"
+msgstr "Material Analysis System"
+
+msgid "File size must be less than 16MB"
+msgstr "File size must be less than 16MB"
+
+msgid "Please upload PNG or JPEG files only"
+msgstr "Please upload PNG or JPEG files only"
+
+msgid "Please provide either a text description or upload a drawing"
+msgstr "Please provide either a text description or upload a drawing"

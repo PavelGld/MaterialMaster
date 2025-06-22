@@ -1,0 +1,2 @@
+# This file ensures the uploads directory is created in git repositories
+# Actual uploaded files should not be committed to version control
