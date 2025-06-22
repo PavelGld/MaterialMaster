@@ -1,20 +1,42 @@
-# Russian translations for Material Analysis Application
+# Russian translations for Material Analysis App.
+# Copyright (C) 2024
+# This file is distributed under the same license as the Material Analysis App project.
+#
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: 2024-01-01 12:00+0000\n"
+"Last-Translator: \n"
 "Language: ru\n"
-
-msgid "AI Material Selection"
-msgstr "ИИ Подбор Материалов"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
 
 msgid "Material Selection Analysis"
-msgstr "Анализ Подбора Материалов"
+msgstr "Анализ выбора материалов"
+
+msgid "AI Material Selection"
+msgstr "ИИ подбор материалов"
+
+msgid "About"
+msgstr "О системе"
+
+msgid "AI-powered material selection system for engineering applications"
+msgstr "Система подбора материалов на основе ИИ для инженерных приложений"
+
+msgid "Material Analysis System"
+msgstr "Система анализа материалов"
 
 msgid "Upload technical drawings or provide descriptions for AI-powered material recommendations"
 msgstr "Загрузите технические чертежи или предоставьте описания для рекомендаций материалов на основе ИИ"
 
 msgid "Input Data"
-msgstr "Исходные данные"
+msgstr "Входные данные"
 
 msgid "Technical Description"
 msgstr "Техническое описание"
@@ -26,22 +48,19 @@ msgid "Provide detailed information about the component including dimensions, op
 msgstr "Предоставьте подробную информацию о компоненте, включая размеры, рабочую температуру, нагрузки, окружающую среду и т.д."
 
 msgid "Technical Drawing"
-msgstr "Технический чертёж"
+msgstr "Технический чертеж"
 
 msgid "Upload PNG or JPEG images. OCR will extract text from technical drawings."
-msgstr "Загрузите изображения PNG или JPEG. OCR извлечёт текст из технических чертежей."
+msgstr "Загрузите изображения PNG или JPEG. OCR извлечет текст из технических чертежей."
 
 msgid "Note:"
-msgstr "Заметка:"
+msgstr "Примечание:"
 
 msgid "You can provide either a text description, upload a drawing, or both. The system will analyze all available information to provide comprehensive material recommendations."
-msgstr "Вы можете предоставить либо текстовое описание, загрузить чертёж, либо и то, и другое. Система проанализирует всю доступную информацию для предоставления комплексных рекомендаций по материалам."
+msgstr "Вы можете предоставить текстовое описание, загрузить чертеж или и то, и другое. Система проанализирует всю доступную информацию для предоставления комплексных рекомендаций по материалам."
 
 msgid "Analyze Materials"
 msgstr "Анализировать материалы"
-
-msgid "Processing..."
-msgstr "Обработка..."
 
 msgid "OCR Processing"
 msgstr "OCR обработка"
@@ -56,22 +75,22 @@ msgid "Powered by Google Gemini for intelligent material recommendations"
 msgstr "На основе Google Gemini для интеллектуальных рекомендаций материалов"
 
 msgid "PDF Reports"
-msgstr "PDF отчёты"
+msgstr "PDF отчеты"
 
 msgid "Generate professional PDF reports with detailed analysis"
-msgstr "Генерирование профессиональных PDF отчётов с подробным анализом"
+msgstr "Создание профессиональных PDF отчетов с подробным анализом"
 
 msgid "Analysis Report Sections"
-msgstr "Разделы аналитического отчёта"
+msgstr "Разделы аналитического отчета"
 
 msgid "Product Purpose Assessment"
-msgstr "Оценка назначения изделия"
+msgstr "Оценка назначения продукта"
 
 msgid "Material Selection & Justification"
-msgstr "Выбор и обоснование материала"
+msgstr "Выбор материала и обоснование"
 
 msgid "Manufacturing Technology"
-msgstr "Технология изготовления"
+msgstr "Технология производства"
 
 msgid "Structural Characteristics"
 msgstr "Структурные характеристики"
@@ -83,16 +102,13 @@ msgid "Testing Methods & Standards"
 msgstr "Методы испытаний и стандарты"
 
 msgid "Please provide either a text description or upload a drawing."
-msgstr "Пожалуйста, предоставьте текстовое описание или загрузите чертёж."
+msgstr "Пожалуйста, предоставьте текстовое описание или загрузите чертеж."
 
 msgid "Text successfully extracted from drawing."
-msgstr "Текст успешно извлечён из чертежа."
+msgstr "Текст успешно извлечен из чертежа."
 
 msgid "No text could be extracted from the drawing."
 msgstr "Из чертежа не удалось извлечь текст."
-
-msgid "Error processing uploaded file: %(error)s"
-msgstr "Ошибка обработки загруженного файла: %(error)s"
 
 msgid "Invalid file format. Please upload PNG or JPEG files only."
 msgstr "Неверный формат файла. Пожалуйста, загружайте только файлы PNG или JPEG."
@@ -101,121 +117,19 @@ msgid "No text available for analysis."
 msgstr "Нет текста для анализа."
 
 msgid "Failed to generate material analysis. Please try again."
-msgstr "Не удалось сгенерировать анализ материалов. Пожалуйста, попробуйте снова."
-
-msgid "An error occurred during analysis: %(error)s"
-msgstr "Произошла ошибка во время анализа: %(error)s"
-
-msgid "Analysis Results"
-msgstr "Результаты анализа"
-
-msgid "Material Analysis Results"
-msgstr "Результаты анализа материалов"
-
-msgid "Download PDF"
-msgstr "Скачать PDF"
-
-msgid "New Analysis"
-msgstr "Новый анализ"
-
-msgid "Input Data Summary"
-msgstr "Сводка исходных данных"
-
-msgid "OCR Extracted"
-msgstr "OCR извлечено"
-
-msgid "1. Product Purpose and Operating Conditions Assessment"
-msgstr "1. Оценка назначения изделия и условий эксплуатации"
-
-msgid "Purpose"
-msgstr "Назначение"
-
-msgid "Operating Conditions"
-msgstr "Условия эксплуатации"
-
-msgid "Critical Requirements"
-msgstr "Критические требования"
-
-msgid "2. Material Selection and Justification"
-msgstr "2. Выбор и обоснование материала"
-
-msgid "Recommended Materials"
-msgstr "Рекомендуемые материалы"
-
-msgid "Primary Choice"
-msgstr "Основной выбор"
-
-msgid "Justification"
-msgstr "Обоснование"
-
-msgid "GOST Standards"
-msgstr "Стандарты ГОСТ"
-
-msgid "3. Manufacturing Technology and Processing"
-msgstr "3. Технология изготовления и обработки"
-
-msgid "Processing Methods"
-msgstr "Методы обработки"
-
-msgid "Heat Treatment"
-msgstr "Термическая обработка"
-
-msgid "Surface Treatment"
-msgstr "Поверхностная обработка"
-
-msgid "4. Material Structure Characteristics"
-msgstr "4. Характеристики структуры материала"
-
-msgid "Microstructure"
-msgstr "Микроструктура"
-
-msgid "Mechanical Properties"
-msgstr "Механические свойства"
-
-msgid "5. Defect Analysis and Prevention"
-msgstr "5. Анализ дефектов и предотвращение"
-
-msgid "Common Defects"
-msgstr "Распространённые дефекты"
-
-msgid "Prevention Methods"
-msgstr "Методы предотвращения"
-
-msgid "6. Material Properties Testing Methods"
-msgstr "6. Методы определения свойств материалов"
-
-msgid "Mechanical Tests"
-msgstr "Механические испытания"
-
-msgid "Testing Standards"
-msgstr "Стандарты испытаний"
-
-msgid "No analysis results available."
-msgstr "Результаты анализа недоступны."
-
-msgid "Download PDF Report"
-msgstr "Скачать PDF отчёт"
+msgstr "Не удалось сгенерировать анализ материала. Пожалуйста, попробуйте еще раз."
 
 msgid "No analysis available for PDF generation."
-msgstr "Нет анализа для генерации PDF."
-
-msgid "Error generating PDF report: %(error)s"
-msgstr "Ошибка генерации PDF отчёта: %(error)s"
-
-msgid "About"
-msgstr "О программе"
-
-msgid "AI-powered material selection system for engineering applications"
-msgstr "Система подбора материалов на основе ИИ для инженерных приложений"
-
-msgid "Material Analysis System"
-msgstr "Система анализа материалов"
+msgstr "Нет анализа для создания PDF."
 
 msgid "File size must be less than 16MB"
-msgstr "Размер файла должен быть менее 16 МБ"
+msgstr "Размер файла должен быть менее 16МБ"
 
 msgid "Please upload PNG or JPEG files only"
 msgstr "Пожалуйста, загружайте только файлы PNG или JPEG"
 
 msgid "Please provide either a text description or upload a drawing"
-msgstr "Пожалуйста, предоставьте текстовое описание или загрузите чертёж"
+msgstr "Пожалуйста, предоставьте текстовое описание или загрузите чертеж"
+
+msgid "Processing..."
+msgstr "Обработка..."

@@ -21,22 +21,23 @@ app.config.from_object(Config)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
-# Initialize Babel for internationalization
-babel = Babel(app)
-
-# Initialize services
-ocr_service = OCRService()
-ai_service = AIService()
-vector_service = VectorService()
-pdf_service = PDFService()
-
-@babel.localeselector
+# Locale selector function
 def get_locale():
     # Check if user has set a language preference
     if 'language' in session:
         return session['language']
     # Otherwise try to guess the language from the user accept header
     return request.accept_languages.best_match(['ru', 'en'], default='en')
+
+# Initialize Babel for internationalization
+babel = Babel()
+babel.init_app(app, locale_selector=get_locale)
+
+# Initialize services
+ocr_service = OCRService()
+ai_service = AIService()
+vector_service = VectorService()
+pdf_service = PDFService()
 
 @app.route('/')
 def index():

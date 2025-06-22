@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ get_locale() }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-globe me-1"></i>
-                            {% if get_locale() == 'ru' %}Русский{% else %}English{% endif %}
+                            {% if session.language == 'ru' %}Русский{% else %}English{% endif %}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ url_for('set_language', language='en') }}">English</a></li>
@@ -77,7 +77,7 @@
                 <div class="col-md-6 text-md-end">
                     <p class="mb-0">
                         <i class="fas fa-calendar me-1"></i>
-                        {{ moment().format('YYYY') }} {{ _('Material Analysis System') }}
+                        2024 {{ _('Material Analysis System') }}
                     </p>
                 </div>
             </div>

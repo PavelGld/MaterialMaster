@@ -1,14 +1,36 @@
-# English translations for Material Analysis Application
+# English translations for Material Analysis App.
+# Copyright (C) 2024
+# This file is distributed under the same license as the Material Analysis App project.
+#
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: 2024-01-01 12:00+0000\n"
+"Last-Translator: \n"
 "Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+msgid "Material Selection Analysis"
+msgstr "Material Selection Analysis"
 
 msgid "AI Material Selection"
 msgstr "AI Material Selection"
 
-msgid "Material Selection Analysis"
-msgstr "Material Selection Analysis"
+msgid "About"
+msgstr "About"
+
+msgid "AI-powered material selection system for engineering applications"
+msgstr "AI-powered material selection system for engineering applications"
+
+msgid "Material Analysis System"
+msgstr "Material Analysis System"
 
 msgid "Upload technical drawings or provide descriptions for AI-powered material recommendations"
 msgstr "Upload technical drawings or provide descriptions for AI-powered material recommendations"
@@ -39,9 +61,6 @@ msgstr "You can provide either a text description, upload a drawing, or both. Th
 
 msgid "Analyze Materials"
 msgstr "Analyze Materials"
-
-msgid "Processing..."
-msgstr "Processing..."
 
 msgid "OCR Processing"
 msgstr "OCR Processing"
@@ -91,9 +110,6 @@ msgstr "Text successfully extracted from drawing."
 msgid "No text could be extracted from the drawing."
 msgstr "No text could be extracted from the drawing."
 
-msgid "Error processing uploaded file: %(error)s"
-msgstr "Error processing uploaded file: %(error)s"
-
 msgid "Invalid file format. Please upload PNG or JPEG files only."
 msgstr "Invalid file format. Please upload PNG or JPEG files only."
 
@@ -103,115 +119,10 @@ msgstr "No text available for analysis."
 msgid "Failed to generate material analysis. Please try again."
 msgstr "Failed to generate material analysis. Please try again."
 
-msgid "An error occurred during analysis: %(error)s"
-msgstr "An error occurred during analysis: %(error)s"
-
-msgid "Analysis Results"
-msgstr "Analysis Results"
-
-msgid "Material Analysis Results"
-msgstr "Material Analysis Results"
-
-msgid "Download PDF"
-msgstr "Download PDF"
-
-msgid "New Analysis"
-msgstr "New Analysis"
-
-msgid "Input Data Summary"
-msgstr "Input Data Summary"
-
-msgid "OCR Extracted"
-msgstr "OCR Extracted"
-
-msgid "1. Product Purpose and Operating Conditions Assessment"
-msgstr "1. Product Purpose and Operating Conditions Assessment"
-
-msgid "Purpose"
-msgstr "Purpose"
-
-msgid "Operating Conditions"
-msgstr "Operating Conditions"
-
-msgid "Critical Requirements"
-msgstr "Critical Requirements"
-
-msgid "2. Material Selection and Justification"
-msgstr "2. Material Selection and Justification"
-
-msgid "Recommended Materials"
-msgstr "Recommended Materials"
-
-msgid "Primary Choice"
-msgstr "Primary Choice"
-
-msgid "Justification"
-msgstr "Justification"
-
-msgid "GOST Standards"
-msgstr "GOST Standards"
-
-msgid "3. Manufacturing Technology and Processing"
-msgstr "3. Manufacturing Technology and Processing"
-
-msgid "Processing Methods"
-msgstr "Processing Methods"
-
-msgid "Heat Treatment"
-msgstr "Heat Treatment"
-
-msgid "Surface Treatment"
-msgstr "Surface Treatment"
-
-msgid "4. Material Structure Characteristics"
-msgstr "4. Material Structure Characteristics"
-
-msgid "Microstructure"
-msgstr "Microstructure"
-
-msgid "Mechanical Properties"
-msgstr "Mechanical Properties"
-
-msgid "5. Defect Analysis and Prevention"
-msgstr "5. Defect Analysis and Prevention"
-
-msgid "Common Defects"
-msgstr "Common Defects"
-
-msgid "Prevention Methods"
-msgstr "Prevention Methods"
-
-msgid "6. Material Properties Testing Methods"
-msgstr "6. Material Properties Testing Methods"
-
-msgid "Mechanical Tests"
-msgstr "Mechanical Tests"
-
-msgid "Testing Standards"
-msgstr "Testing Standards"
-
-msgid "No analysis results available."
-msgstr "No analysis results available."
-
-msgid "Download PDF Report"
-msgstr "Download PDF Report"
-
 msgid "No analysis available for PDF generation."
 msgstr "No analysis available for PDF generation."
 
-msgid "Error generating PDF report: %(error)s"
-msgstr "Error generating PDF report: %(error)s"
-
-msgid "About"
-msgstr "About"
-
-msgid "AI-powered material selection system for engineering applications"
-msgstr "AI-powered material selection system for engineering applications"
-
-msgid "Material Analysis System"
-msgstr "Material Analysis System"
-
-msgid "File size must be less than 16MB"
+msgid "File size must be less than 16MB"  
 msgstr "File size must be less than 16MB"
 
 msgid "Please upload PNG or JPEG files only"
@@ -219,3 +130,6 @@ msgstr "Please upload PNG or JPEG files only"
 
 msgid "Please provide either a text description or upload a drawing"
 msgstr "Please provide either a text description or upload a drawing"
+
+msgid "Processing..."
+msgstr "Processing..."
