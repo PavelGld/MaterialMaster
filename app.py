@@ -33,6 +33,14 @@ def get_locale():
 babel = Babel()
 babel.init_app(app, locale_selector=get_locale)
 
+# Make functions available to templates
+@app.context_processor
+def inject_template_vars():
+    return {
+        '_': gettext,
+        'get_locale': get_locale
+    }
+
 # Initialize services
 ocr_service = OCRService()
 ai_service = AIService()
