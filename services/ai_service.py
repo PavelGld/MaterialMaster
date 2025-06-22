@@ -51,7 +51,10 @@ class AIService:
             if response.status_code == 200:
                 result = response.json()
                 content = result['choices'][0]['message']['content']
-                return self._parse_ai_response(content)
+                self.logger.info(f"AI Response received: {content[:500]}...")
+                parsed_result = self._parse_ai_response(content)
+                self.logger.info(f"Parsed result keys: {list(parsed_result.keys()) if parsed_result else 'None'}")
+                return parsed_result
             else:
                 self.logger.error(f"API request failed: {response.status_code} - {response.text}")
                 return None
@@ -191,9 +194,26 @@ Provide specific, detailed recommendations based on engineering best practices a
     def _parse_ai_response(self, content: str) -> Dict[str, Any]:
         """Parse AI response into structured format"""
         try:
-            # Try to parse as JSON first
-            if content.strip().startswith('{'):
-                return json.loads(content)
+            # Clean up content and try to extract JSON
+            content = content.strip()
+            
+            # Look for JSON block in markdown code blocks
+            if '```json' in content:
+                start = content.find('```json') + 7
+                end = content.find('```', start)
+                if end != -1:
+                    content = content[start:end].strip()
+            elif '```' in content:
+                start = content.find('```') + 3
+                end = content.find('```', start)
+                if end != -1:
+                    content = content[start:end].strip()
+            
+            # Try to parse as JSON
+            if content.startswith('{') and content.endswith('}'):
+                parsed = json.loads(content)
+                self.logger.info(f"Successfully parsed JSON with keys: {list(parsed.keys())}")
+                return parsed
             
             # If not JSON, create structured response from text
             return {
