@@ -133,3 +133,108 @@ msgstr "Пожалуйста, предоставьте текстовое опи
 
 msgid "Processing..."
 msgstr "Обработка..."
+
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+msgid "The page you are looking for does not exist."
+msgstr "Страница, которую вы ищете, не существует."
+
+msgid "Return to Home"
+msgstr "Вернуться на главную"
+
+msgid "Internal Server Error"
+msgstr "Внутренняя ошибка сервера"
+
+msgid "Something went wrong on our end. Please try again later."
+msgstr "Что-то пошло не так с нашей стороны. Пожалуйста, попробуйте позже."
+
+msgid "Analysis Results"
+msgstr "Результаты анализа"
+
+msgid "Material Analysis Results"
+msgstr "Результаты анализа материалов"
+
+msgid "Download PDF"
+msgstr "Скачать PDF"
+
+msgid "New Analysis"
+msgstr "Новый анализ"
+
+msgid "Input Data Summary"
+msgstr "Сводка входных данных"
+
+msgid "OCR Extracted"
+msgstr "Извлечено OCR"
+
+msgid "1. Product Purpose and Operating Conditions Assessment"
+msgstr "1. Оценка назначения продукта и условий эксплуатации"
+
+msgid "Purpose"
+msgstr "Назначение"
+
+msgid "Operating Conditions"
+msgstr "Условия эксплуатации"
+
+msgid "Critical Requirements"
+msgstr "Критические требования"
+
+msgid "2. Material Selection and Justification"
+msgstr "2. Выбор материала и обоснование"
+
+msgid "Recommended Materials"
+msgstr "Рекомендуемые материалы"
+
+msgid "Primary Choice"
+msgstr "Основной выбор"
+
+msgid "Justification"
+msgstr "Обоснование"
+
+msgid "GOST Standards"
+msgstr "Стандарты ГОСТ"
+
+msgid "3. Manufacturing Technology and Processing"
+msgstr "3. Технология производства и обработки"
+
+msgid "Processing Methods"
+msgstr "Методы обработки"
+
+msgid "Heat Treatment"
+msgstr "Термообработка"
+
+msgid "Surface Treatment"
+msgstr "Поверхностная обработка"
+
+msgid "4. Material Structure Characteristics"
+msgstr "4. Характеристики структуры материала"
+
+msgid "Microstructure"
+msgstr "Микроструктура"
+
+msgid "Mechanical Properties"
+msgstr "Механические свойства"
+
+msgid "5. Defect Analysis and Prevention"
+msgstr "5. Анализ дефектов и предотвращение"
+
+msgid "Common Defects"
+msgstr "Распространенные дефекты"
+
+msgid "Prevention Methods"
+msgstr "Методы предотвращения"
+
+msgid "6. Material Properties Testing Methods"
+msgstr "6. Методы испытания свойств материалов"
+
+msgid "Mechanical Tests"
+msgstr "Механические испытания"
+
+msgid "Testing Standards"
+msgstr "Стандарты испытаний"
+
+msgid "No analysis results available."
+msgstr "Результаты анализа недоступны."
+
+msgid "Download PDF Report"
+msgstr "Скачать PDF отчет"

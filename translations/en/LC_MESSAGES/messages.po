@@ -133,3 +133,108 @@ msgstr "Please provide either a text description or upload a drawing"
 
 msgid "Processing..."
 msgstr "Processing..."
+
+msgid "Page Not Found"
+msgstr "Page Not Found"
+
+msgid "The page you are looking for does not exist."
+msgstr "The page you are looking for does not exist."
+
+msgid "Return to Home"
+msgstr "Return to Home"
+
+msgid "Internal Server Error"
+msgstr "Internal Server Error"
+
+msgid "Something went wrong on our end. Please try again later."
+msgstr "Something went wrong on our end. Please try again later."
+
+msgid "Analysis Results"
+msgstr "Analysis Results"
+
+msgid "Material Analysis Results"
+msgstr "Material Analysis Results"
+
+msgid "Download PDF"
+msgstr "Download PDF"
+
+msgid "New Analysis"
+msgstr "New Analysis"
+
+msgid "Input Data Summary"
+msgstr "Input Data Summary"
+
+msgid "OCR Extracted"
+msgstr "OCR Extracted"
+
+msgid "1. Product Purpose and Operating Conditions Assessment"
+msgstr "1. Product Purpose and Operating Conditions Assessment"
+
+msgid "Purpose"
+msgstr "Purpose"
+
+msgid "Operating Conditions"
+msgstr "Operating Conditions"
+
+msgid "Critical Requirements"
+msgstr "Critical Requirements"
+
+msgid "2. Material Selection and Justification"
+msgstr "2. Material Selection and Justification"
+
+msgid "Recommended Materials"
+msgstr "Recommended Materials"
+
+msgid "Primary Choice"
+msgstr "Primary Choice"
+
+msgid "Justification"
+msgstr "Justification"
+
+msgid "GOST Standards"
+msgstr "GOST Standards"
+
+msgid "3. Manufacturing Technology and Processing"
+msgstr "3. Manufacturing Technology and Processing"
+
+msgid "Processing Methods"
+msgstr "Processing Methods"
+
+msgid "Heat Treatment"
+msgstr "Heat Treatment"
+
+msgid "Surface Treatment"
+msgstr "Surface Treatment"
+
+msgid "4. Material Structure Characteristics"
+msgstr "4. Material Structure Characteristics"
+
+msgid "Microstructure"
+msgstr "Microstructure"
+
+msgid "Mechanical Properties"
+msgstr "Mechanical Properties"
+
+msgid "5. Defect Analysis and Prevention"
+msgstr "5. Defect Analysis and Prevention"
+
+msgid "Common Defects"
+msgstr "Common Defects"
+
+msgid "Prevention Methods"
+msgstr "Prevention Methods"
+
+msgid "6. Material Properties Testing Methods"
+msgstr "6. Material Properties Testing Methods"
+
+msgid "Mechanical Tests"
+msgstr "Mechanical Tests"
+
+msgid "Testing Standards"
+msgstr "Testing Standards"
+
+msgid "No analysis results available."
+msgstr "No analysis results available."
+
+msgid "Download PDF Report"
+msgstr "Download PDF Report"
