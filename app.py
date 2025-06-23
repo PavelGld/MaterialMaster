@@ -193,14 +193,26 @@ def analyze():
             flash(simple_gettext('Failed to generate material analysis. Please try again.'), 'error')
             return redirect(url_for('index'))
         
-        # Store minimal analysis data in session for PDF generation
-        # Compress data to avoid session size limits
-        session['last_analysis'] = {
-            'input_text': combined_text[:1000] + ('...' if len(combined_text) > 1000 else ''),  # Truncate long text
-            'analysis': analysis_result,
-            'ocr_extracted': bool(ocr_text),
-            'language': get_locale()
-        }
+        # Store analysis data in temporary file due to session size limits
+        import json
+        import uuid
+        
+        analysis_id = str(uuid.uuid4())
+        temp_dir = os.path.join(os.getcwd(), 'temp_analysis')
+        os.makedirs(temp_dir, exist_ok=True)
+        
+        analysis_file = os.path.join(temp_dir, f"{analysis_id}.json")
+        
+        with open(analysis_file, 'w', encoding='utf-8') as f:
+            json.dump({
+                'input_text': combined_text,
+                'analysis': analysis_result,
+                'ocr_extracted': bool(ocr_text),
+                'language': get_locale()
+            }, f, ensure_ascii=False, indent=2)
+        
+        # Store only the file ID in session
+        session['analysis_id'] = analysis_id
         
         return render_template('analysis.html', 
                              analysis=analysis_result,
@@ -216,17 +228,34 @@ def analyze():
 @app.route('/download_pdf')
 def download_pdf():
     try:
-        if 'last_analysis' not in session:
+        # Check if analysis ID exists in session
+        if 'analysis_id' not in session:
             flash(simple_gettext('No analysis available for PDF generation.'), 'error')
             return redirect(url_for('index'))
         
-        analysis_data = session['last_analysis']
+        analysis_id = session['analysis_id']
+        temp_dir = os.path.join(os.getcwd(), 'temp_analysis')
+        analysis_file = os.path.join(temp_dir, f"{analysis_id}.json")
+        
+        # Load analysis data from file
+        if not os.path.exists(analysis_file):
+            flash(simple_gettext('No analysis available for PDF generation.'), 'error')
+            return redirect(url_for('index'))
+        
+        import json
+        with open(analysis_file, 'r', encoding='utf-8') as f:
+            analysis_data = json.load(f)
+        
+        # Validate analysis data
+        if 'analysis' not in analysis_data or not analysis_data['analysis']:
+            flash(simple_gettext('No analysis available for PDF generation.'), 'error')
+            return redirect(url_for('index'))
         
         # Generate PDF using the stored language preference
         stored_language = analysis_data.get('language', get_locale())
         pdf_buffer = pdf_service.generate_report(
             analysis_data['analysis'],
-            analysis_data['input_text'],
+            analysis_data.get('input_text', ''),
             stored_language
         )
         
@@ -235,12 +264,26 @@ def download_pdf():
             tmp_file.write(pdf_buffer.getvalue())
             tmp_file_path = tmp_file.name
         
-        return send_file(
+        def cleanup_files():
+            # Clean up temporary files
+            try:
+                os.unlink(tmp_file_path)
+                os.unlink(analysis_file)
+            except:
+                pass
+        
+        response = send_file(
             tmp_file_path,
             as_attachment=True,
             download_name=f"material_analysis_report_{get_locale()}.pdf",
             mimetype='application/pdf'
         )
+        
+        # Schedule cleanup (files will be cleaned after response)
+        import atexit
+        atexit.register(cleanup_files)
+        
+        return response
         
     except Exception as e:
         logging.error(f"Error generating PDF: {str(e)}")
