@@ -126,11 +126,9 @@
                     {% if analysis.material_selection.gost_standards %}
                     <div class="mb-3">
                         <h6 class="text-success">{{ _('GOST Standards') }}</h6>
-                        <div class="row">
+                        <div class="d-flex flex-wrap gap-2">
                             {% for standard in analysis.material_selection.gost_standards %}
-                            <div class="col-md-6 mb-2">
-                                <span class="badge bg-outline-success">{{ standard }}</span>
-                            </div>
+                            <span class="badge bg-success text-wrap">{{ standard }}</span>
                             {% endfor %}
                         </div>
                     </div>
@@ -200,7 +198,7 @@
                     {% if analysis.structural_characteristics.mechanical_properties %}
                     <div class="mb-3">
                         <h6 class="text-info">{{ _('Mechanical Properties') }}</h6>
-                        <p>{{ analysis.structural_characteristics.mechanical_properties }}</p>
+                        <div class="technical-specs">{{ analysis.structural_characteristics.mechanical_properties }}</div>
                     </div>
                     {% endif %}
                 </div>
@@ -275,11 +273,9 @@
                     {% if analysis.testing_methods.standards %}
                     <div class="mb-3">
                         <h6 class="text-secondary">{{ _('Testing Standards') }}</h6>
-                        <div class="row">
+                        <div class="d-flex flex-wrap gap-2">
                             {% for standard in analysis.testing_methods.standards %}
-                            <div class="col-md-6 mb-2">
-                                <span class="badge bg-secondary">{{ standard }}</span>
-                            </div>
+                            <span class="badge bg-secondary text-wrap">{{ standard }}</span>
                             {% endfor %}
                         </div>
                     </div>

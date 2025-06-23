@@ -48,6 +48,55 @@
     font-weight: 600;
 }
 
+/* Fix for text overflow and wrapping issues */
+.card-body p,
+.card-body div {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.6;
+}
+
+/* Fix for badge containers */
+.badge {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    margin: 2px;
+    display: inline-block;
+    max-width: 100%;
+    line-height: 1.4;
+    padding: 0.375em 0.75em;
+}
+
+/* Fix for grid columns with badges */
+.col-md-6 .badge {
+    max-width: calc(100% - 10px);
+}
+
+/* Ensure proper spacing in lists */
+.list-group-item {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 0.75rem 0;
+    border: none;
+}
+
+/* Fix for technical specifications display */
+.technical-specs {
+    font-family: 'Courier New', monospace;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 4px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    font-size: 0.875rem;
+}
+
 /* Badge styling */
 .badge {
     font-size: 0.85em;
