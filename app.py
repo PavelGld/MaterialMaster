@@ -9,7 +9,7 @@ import tempfile
 from services.ocr_service import OCRService
 from services.ai_service import AIService
 from services.vector_service import VectorService
-from services.pdf_service import PDFService
+from services.pdf_service_simple import PDFService
 from utils.file_utils import allowed_file, save_uploaded_file
 from config import Config
 

@@ -1,15 +1,14 @@
 import logging
 from reportlab.lib.pagesizes import letter, A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib import colors
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_JUSTIFY
 import io
 from datetime import datetime
 from typing import Dict, Any
+import html
 
 class PDFService:
     def __init__(self):
@@ -19,20 +18,22 @@ class PDFService:
     
     def _setup_styles(self):
         """Setup custom styles for PDF generation"""
-        # Title style
+        # Title style with safe font
         self.title_style = ParagraphStyle(
             'CustomTitle',
             parent=self.styles['Heading1'],
+            fontName='Helvetica-Bold',
             fontSize=16,
             spaceAfter=20,
             alignment=TA_CENTER,
             textColor=colors.black
         )
         
-        # Heading style
+        # Heading style with safe font
         self.heading_style = ParagraphStyle(
             'CustomHeading',
             parent=self.styles['Heading2'],
+            fontName='Helvetica-Bold',
             fontSize=14,
             spaceAfter=12,
             spaceBefore=16,
