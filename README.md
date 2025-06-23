@@ -212,7 +212,3 @@ sudo apt install fonts-dejavu-core
 ## Лицензия
 
 MIT License
-
-## Контакты
-
-Для вопросов и предложений создавайте Issues в репозитории проекта.
