@@ -77,7 +77,40 @@ def simple_gettext(text):
         'The page you are looking for does not exist.': 'Страница, которую вы ищете, не существует.',
         'Return to Home': 'Вернуться на главную',
         'Internal Server Error': 'Внутренняя ошибка сервера',
-        'Something went wrong on our end. Please try again later.': 'Что-то пошло не так с нашей стороны. Пожалуйста, попробуйте позже.'
+        'Something went wrong on our end. Please try again later.': 'Что-то пошло не так с нашей стороны. Пожалуйста, попробуйте позже.',
+        
+        # Analysis section titles
+        'Material Analysis Results': 'Результаты анализа материалов',
+        'Analysis Results': 'Результаты анализа',
+        'Input Data Summary': 'Сводка входных данных',
+        'Download PDF': 'Скачать PDF',
+        'New Analysis': 'Новый анализ',
+        '1. Product Purpose and Operating Conditions Assessment': '1. Оценка назначения изделия и условий эксплуатации',
+        '2. Material Selection and Justification': '2. Выбор и обоснование материала',
+        '3. Manufacturing Technology and Processing': '3. Технология изготовления и обработки',
+        '4. Material Structure Characteristics': '4. Структурные характеристики материала',
+        '5. Defect Analysis and Prevention': '5. Анализ дефектов и предотвращение',
+        '6. Material Properties Testing Methods': '6. Методы испытаний свойств материала',
+        
+        # Subsection titles
+        'Purpose': 'Назначение',
+        'Operating Conditions': 'Условия эксплуатации',
+        'Critical Requirements': 'Критические требования',
+        'Recommended Materials': 'Рекомендуемые материалы',
+        'Primary Choice': 'Основной выбор',
+        'Justification': 'Обоснование',
+        'GOST Standards': 'Стандарты ГОСТ',
+        'Processing Methods': 'Методы обработки',
+        'Heat Treatment': 'Термическая обработка',
+        'Surface Treatment': 'Обработка поверхности',
+        'Microstructure': 'Микроструктура',
+        'Mechanical Properties': 'Механические свойства',
+        'Common Defects': 'Типичные дефекты',
+        'Prevention Methods': 'Методы предотвращения',
+        'Mechanical Tests': 'Механические испытания',
+        'Testing Standards': 'Стандарты испытаний',
+        'No analysis results available.': 'Результаты анализа недоступны.',
+        'Download PDF Report': 'Скачать PDF отчет'
     }
     
     current_locale = get_locale()
