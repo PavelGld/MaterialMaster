@@ -13,16 +13,23 @@ from typing import Dict, Any
 import os
 
 class PDFService:
+    """
+    PDF report generation service with full Unicode and Cyrillic support
+    Creates professional material analysis reports with proper font handling
+    """
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.styles = getSampleStyleSheet()
-        self._register_fonts()
-        self._setup_styles()
+        self._register_fonts()    # Setup Unicode fonts for proper text rendering
+        self._setup_styles()      # Configure custom styles for report sections
     
     def _register_fonts(self):
-        """Register fonts for Unicode support"""
+        """
+        Register Unicode-compatible fonts for proper Cyrillic text rendering
+        DejaVu fonts provide comprehensive Unicode support including Russian characters
+        """
         try:
-            # Try to register DejaVu fonts for Cyrillic support
+            # Attempt to register DejaVu fonts for full Unicode support
             dejavu_path = '/usr/share/fonts/truetype/dejavu'
             if os.path.exists(dejavu_path):
                 pdfmetrics.registerFont(TTFont('DejaVu', f'{dejavu_path}/DejaVuSans.ttf'))
@@ -34,7 +41,8 @@ class PDFService:
                 raise FileNotFoundError("DejaVu fonts not found")
         except Exception as e:
             self.logger.warning(f"Could not register DejaVu fonts: {e}")
-            # Fallback to Helvetica with limited Unicode support
+            # Fallback to standard Helvetica (limited Unicode support)
+            # Will trigger transliteration for Cyrillic text
             self.font_name = 'Helvetica'
             self.font_bold = 'Helvetica-Bold'
     

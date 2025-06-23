@@ -193,7 +193,8 @@ def analyze():
             flash(simple_gettext('Failed to generate material analysis. Please try again.'), 'error')
             return redirect(url_for('index'))
         
-        # Store analysis data in temporary file due to session size limits
+        # Store analysis data in temporary file due to Flask session size limits (4KB)
+        # Large analysis results exceed session capacity, so we use file-based storage
         import json
         import uuid
         
@@ -203,6 +204,7 @@ def analyze():
         
         analysis_file = os.path.join(temp_dir, f"{analysis_id}.json")
         
+        # Save complete analysis data to JSON file with UTF-8 encoding
         with open(analysis_file, 'w', encoding='utf-8') as f:
             json.dump({
                 'input_text': combined_text,
@@ -211,7 +213,7 @@ def analyze():
                 'language': get_locale()
             }, f, ensure_ascii=False, indent=2)
         
-        # Store only the file ID in session
+        # Store only the unique analysis ID in session for later retrieval
         session['analysis_id'] = analysis_id
         
         return render_template('analysis.html', 
