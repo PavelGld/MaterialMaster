@@ -88,6 +88,7 @@
 .technical-specs {
     font-family: 'Courier New', monospace;
     background-color: #f8f9fa;
+    color: #212529 !important;
     padding: 0.5rem;
     border-radius: 4px;
     word-wrap: break-word;
@@ -95,6 +96,7 @@
     overflow-wrap: break-word;
     white-space: pre-wrap;
     font-size: 0.875rem;
+    border: 1px solid #dee2e6;
 }
 
 /* Badge styling */
