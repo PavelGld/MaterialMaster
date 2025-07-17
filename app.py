@@ -5,6 +5,7 @@ from flask_babel import Babel
 from werkzeug.utils import secure_filename
 from werkzeug.middleware.proxy_fix import ProxyFix
 import tempfile
+from urllib.parse import urlparse
 
 from services.ocr_service import OCRService
 from services.ai_service import AIService
@@ -20,6 +21,20 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
+def is_safe_url(target):
+    """Check if a URL is safe to redirect to (same host)"""
+    if not target:
+        return False
+    
+    try:
+        parsed_target = urlparse(target)
+        parsed_request = urlparse(request.url)
+        
+        # Allow relative URLs (no netloc) or same-host URLs
+        return (not parsed_target.netloc) or (parsed_target.netloc == parsed_request.netloc)
+    except Exception:
+        return False
 
 # Locale selector function
 def get_locale():
@@ -139,7 +154,11 @@ def index():
 @app.route('/set_language/<language>')
 def set_language(language=None):
     session['language'] = language
-    return redirect(request.referrer or url_for('index'))
+    # Use safe redirect - only allow same-host URLs
+    next_url = request.referrer
+    if next_url and is_safe_url(next_url):
+        return redirect(next_url)
+    return redirect(url_for('index'))
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
