@@ -231,11 +231,17 @@ const MaterialApp = {
     setLoadingState(button, loading) {
         if (loading) {
             button.disabled = true;
-            const originalContent = button.innerHTML;
-            button.dataset.originalContent = originalContent;
+            // Store original child nodes instead of innerHTML
+            const originalNodes = Array.from(button.childNodes);
+            button.dataset.originalNodesStored = 'true';
+            
+            // Store reference to original nodes in a safe way
+            if (!button._originalNodes) {
+                button._originalNodes = originalNodes.map(node => node.cloneNode(true));
+            }
             
             const loadingText = button.dataset.loadingText || 'Processing...';
-            // Use textContent to safely set the loading text
+            // Clear button and add loading content
             button.innerHTML = '';
             const spinner = document.createElement('span');
             spinner.className = 'spinner-border spinner-border-sm me-2';
@@ -244,16 +250,12 @@ const MaterialApp = {
             button.appendChild(textNode);
         } else {
             button.disabled = false;
-            if (button.dataset.originalContent) {
-                // Create a temporary container to safely parse HTML
-                const tempContainer = document.createElement('div');
-                tempContainer.innerHTML = button.dataset.originalContent;
-                
-                // Clear button and append parsed content as DOM nodes
+            if (button.dataset.originalNodesStored && button._originalNodes) {
+                // Safely restore original content from stored DOM nodes
                 button.innerHTML = '';
-                while (tempContainer.firstChild) {
-                    button.appendChild(tempContainer.firstChild);
-                }
+                button._originalNodes.forEach(node => {
+                    button.appendChild(node.cloneNode(true));
+                });
             }
         }
     },
