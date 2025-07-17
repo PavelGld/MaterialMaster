@@ -235,7 +235,13 @@ const MaterialApp = {
             button.dataset.originalContent = originalContent;
             
             const loadingText = button.dataset.loadingText || 'Processing...';
-            button.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span>${loadingText}`;
+            // Use textContent to safely set the loading text
+            button.innerHTML = '';
+            const spinner = document.createElement('span');
+            spinner.className = 'spinner-border spinner-border-sm me-2';
+            const textNode = document.createTextNode(loadingText);
+            button.appendChild(spinner);
+            button.appendChild(textNode);
         } else {
             button.disabled = false;
             if (button.dataset.originalContent) {
@@ -248,11 +254,24 @@ const MaterialApp = {
     showAlert(type, message) {
         const alertContainer = document.createElement('div');
         alertContainer.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show`;
-        alertContainer.innerHTML = `
-            <i class="fas fa-${this.getAlertIcon(type)} me-2"></i>
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        `;
+        
+        // Create icon element
+        const icon = document.createElement('i');
+        icon.className = `fas fa-${this.getAlertIcon(type)} me-2`;
+        
+        // Create message text node
+        const messageText = document.createTextNode(message);
+        
+        // Create close button
+        const closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'btn-close';
+        closeBtn.setAttribute('data-bs-dismiss', 'alert');
+        
+        // Assemble the alert
+        alertContainer.appendChild(icon);
+        alertContainer.appendChild(messageText);
+        alertContainer.appendChild(closeBtn);
 
         // Insert at top of main content
         const mainContent = document.querySelector('.main-content .container');
