@@ -309,7 +309,8 @@ def download_pdf():
     except Exception as e:
         logging.error(f"Error generating PDF: {str(e)}")
         flash(f"Error generating PDF report: {str(e)}", 'error')
-        return redirect(request.referrer or url_for('index'))
+        referrer = request.referrer if is_safe_url(request.referrer) else None
+        return redirect(referrer or url_for('index'))
 
 @app.errorhandler(404)
 def not_found_error(error):
