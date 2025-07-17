@@ -245,7 +245,15 @@ const MaterialApp = {
         } else {
             button.disabled = false;
             if (button.dataset.originalContent) {
-                button.innerHTML = button.dataset.originalContent;
+                // Create a temporary container to safely parse HTML
+                const tempContainer = document.createElement('div');
+                tempContainer.innerHTML = button.dataset.originalContent;
+                
+                // Clear button and append parsed content as DOM nodes
+                button.innerHTML = '';
+                while (tempContainer.firstChild) {
+                    button.appendChild(tempContainer.firstChild);
+                }
             }
         }
     },
